@@ -7,6 +7,7 @@ let yContent = y.innerHTML;
 x.innerHTML = yContent;
 y.innerHTML = xContent;
 
+let countMaxForm = document.querySelector(".maxvalues_form");
 let addValueButton = document.querySelector("#addValueButton");
 let findMaxButton = document.querySelector("#findMax");
 findMax
@@ -20,6 +21,24 @@ function showValues(array, textBox) {
 		textBox.innerText += (" "+ element);
 	});
 }
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
 
 function countMax(array){
 	let sorted = array.toSorted(function(a, b){return b - a});
@@ -45,3 +64,9 @@ findMaxButton.addEventListener("click", function (e) {
 	alert(countOfMax);
 	document.cookie = "countOfMax="+countOfMax;
 });
+
+let cookie = getCookie("countOfMax");
+
+if(cookie != ""){
+	countMaxForm.style.display = "none";
+}
