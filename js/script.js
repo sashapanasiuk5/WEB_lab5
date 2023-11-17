@@ -80,7 +80,7 @@ findMaxButton.addEventListener("click", function (e) {
 let feedbackBlock = document.querySelector(".feedback");
 let backgroundColorInput = document.querySelector("#backgroundColor");
 
-window.onload += ()=>{
+window.addEventListener("load", (event)=>{
 	let cookie = getCookie("countOfMax");
 
 	if(cookie != ""){
