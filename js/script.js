@@ -52,6 +52,11 @@ function countMax(array){
 	return count;
 }
 
+function ConfirmDeletingCookie(){
+	let text="Cookies: "+document.cookie+"\nВидалити?";
+	return confirm(text);
+}
+
 addValueButton.addEventListener("click", function (e) {
 	let value = valueInput.value;
 	array.push(parseInt(value));
@@ -69,4 +74,9 @@ let cookie = getCookie("countOfMax");
 
 if(cookie != ""){
 	countMaxForm.style.display = "none";
+}else{
+	if(ConfirmDeletingCookie()){
+		document.cookie = "countOfMax= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+		location.reload();
+	}
 }
