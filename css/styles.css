@@ -175,7 +175,10 @@ aside .title{
 	padding-bottom: 28px;
 	font-family: "Montserrat Medium";
 }
-
+.feedback .title{
+	padding-top: 0px;
+	padding-bottom: 28px;
+}
 .feedback .text{
 	font-size: 16px;
 	font-family: "Montserrat Medium Italic";
@@ -191,7 +194,9 @@ aside .title{
 	
 	flex-grow: 1;
 }
-
+.color_form{
+	padding: 15px;
+}
 .contact-form input,textarea{
 	font-family: "Montserrat Medium";
 	border:none;

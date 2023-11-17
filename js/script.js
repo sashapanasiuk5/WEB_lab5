@@ -70,12 +70,25 @@ findMaxButton.addEventListener("click", function (e) {
 	document.cookie = "countOfMax="+countOfMax;
 });
 
-let cookie = getCookie("countOfMax");
 
-if(cookie != ""){
-	countMaxForm.style.display = "none";
-	if(ConfirmDeletingCookie()){
-		document.cookie = "countOfMax= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-		location.reload();
+let feedbackBlock = document.querySelector(".feedback");
+let backgroundColorInput = document.querySelector("#backgroundColor");
+
+window.onload += ()=>{
+	let cookie = getCookie("countOfMax");
+
+	if(cookie != ""){
+		countMaxForm.style.display = "none";
+		if(ConfirmDeletingCookie()){
+			document.cookie = "countOfMax= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+			location.reload();
+		}
 	}
+
+	feedbackBlock.style.background = localStorage.getItem("blockColor");
 }
+
+feedbackBlock.addEventListener("blur", function (e) {
+	feedbackBlock.style.background = backgroundColorInput.value;
+	localStorage.setItem("blockColor", backgroundColorInput.value);
+},true);
