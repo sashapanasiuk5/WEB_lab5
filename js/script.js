@@ -84,11 +84,72 @@ window.onload += ()=>{
 			location.reload();
 		}
 	}
-
-	feedbackBlock.style.background = localStorage.getItem("blockColor");
 }
+
+
+feedbackBlock.style.background = localStorage.getItem("blockColor");
 
 feedbackBlock.addEventListener("blur", function (e) {
 	feedbackBlock.style.background = backgroundColorInput.value;
 	localStorage.setItem("blockColor", backgroundColorInput.value);
 },true);
+
+
+function ShowForm(element){
+	
+			let contentInput;
+			if(element.classList.contains("hastextarea")){
+				contentInput = document.createElement("textarea");
+			}else{
+				contentInput = document.createElement("input");
+			}
+
+		let elementContent = element.innerHTML;
+		let saveButton = document.createElement("button");
+		contentInput.setAttribute("type", "text");
+		saveButton.textContent ="Зберегти";
+		contentInput.value = elementContent;
+		element.appendChild(contentInput);
+		element.appendChild(saveButton);
+
+		saveButton.addEventListener("click", (e)=>{
+			localStorage.setItem("block_"+element.id, contentInput.value);
+			localStorage.setItem("block_"+element.id+"_prev", elementContent);
+			element.innerHTML = contentInput.value;
+			element.style.background="rgb(172, 56, 214)";
+			addRestoreButton(element);
+		});
+	
+}
+
+let editableBlocks = document.querySelectorAll(".editable");
+
+editableBlocks.forEach((element)=>{
+	element.addEventListener("dblclick",(e)=>{
+			ShowForm(element);
+	},true);
+});
+
+
+function addRestoreButton(block){
+	let restoreContentButton = document.createElement("button");
+	restoreContentButton.textContent = "Відновити початковий вміст";
+
+	restoreContentButton.addEventListener("click", (e)=>{
+		let blockID = block.id;
+		block.innerHTML = localStorage.getItem("block_"+blockID+"_prev");
+		localStorage.removeItem("block_"+blockID+"_prev");
+		localStorage.removeItem("block_"+blockID);
+	});
+
+	block.appendChild(restoreContentButton);
+}
+
+for (var i = 1; i <= 6; i++) {
+	let blockContent = localStorage.getItem("block_"+i);
+	if(blockContent != null){
+		let block = document.getElementById(i);
+		block.innerHTML = blockContent;
+		addRestoreButton(block);
+	}
+}

@@ -7,7 +7,7 @@
 </head>
 <body>
 	<header>
-		<div class="logo">Car service</div>
+		<div class="logo editable" id="1">Car service</div>
 		<div class="discount-banner">
 			-10% discount
 		</div>
@@ -16,7 +16,7 @@
 		<div class="content">
 			<main>
 				<aside>
-					<div class="feedback side-block">
+					<div class="feedback side-block editable" id="2">
 						<div class="color_form">
 							<input type="color" id="backgroundColor">
 							<label for="backgroundColor">Кольор фону</label>
@@ -26,7 +26,7 @@
 							<div class="author"> – Dillan Sullivan</div></div>
 
 					</div>
-					<div class="contact-form side-block">
+					<div class="contact-form side-block editable hastextarea" id="5">
 						<div class="title">Need support?</div>
 						<form action="">
 							<input type="text" placeholder="Name">
@@ -43,7 +43,7 @@
 						<button id="addValueButton">Додати значення</button>
 						<button id="findMax">Знайти кількість максимальних</button>
 					</div>
-					<div class="title">	Gallery</div>
+					<div class="title editable" id="3">Gallery</div>
 					<map name="image1">
 						<area shape="rect" coords="140,0,317,196" href="page2.html" alt="">
 					</map>
@@ -60,17 +60,17 @@
 			</main>
 			<footer>
 				<div class="title">Contacts</div>
-				<div class="info">
+				<div class="info editable hastextarea" id="6">
 					<span id="phone">+38 068 7777 777</span>
 					<span id="email">carservice@gmail.com</span>
 				</div>
 			</footer>
 		</div>
-		<nav>
+		<nav class="editable hastextarea" id="4">
 			<ul>
-				<li><a href="index.html" class="active">FlexBox version</a></li>
-				<li><a href="grid.html" >Grid version</a></li>
-				<li><a href="simple.html" >Version without Flexboxes and Grids</a></li>
+				<li><a href="#" class="active">FlexBox version</a></li>
+				<li><a href="#" >Grid version</a></li>
+				<li><a href="#">Version without Flexboxes and Grids</a></li>
 			</ul>
 		</nav>
 	</div>
