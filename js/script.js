@@ -90,7 +90,7 @@ window.addEventListener("load", (event)=>{
 			location.reload();
 		}
 	}
-}
+});
 
 
 feedbackBlock.style.background = localStorage.getItem("blockColor");
