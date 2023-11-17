@@ -74,7 +74,6 @@ let cookie = getCookie("countOfMax");
 
 if(cookie != ""){
 	countMaxForm.style.display = "none";
-}else{
 	if(ConfirmDeletingCookie()){
 		document.cookie = "countOfMax= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
 		location.reload();
