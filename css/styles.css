@@ -197,6 +197,10 @@ aside .title{
 .color_form{
 	padding: 15px;
 }
+.edititng-input{
+	border: 1px solid;
+    margin-top: 20px;
+}
 .contact-form input,textarea{
 	font-family: "Montserrat Medium";
 	border:none;

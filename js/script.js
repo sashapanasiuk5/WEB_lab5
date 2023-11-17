@@ -22,6 +22,12 @@ function showValues(array, textBox) {
 	});
 }
 
+function calculateCircleSquare(radius){
+	let square = Math.pow(radius,2)+Math.PI;
+	let block = document.getElementById('3');
+	block.innerHTML += "Площа кола: "+square;
+}
+
 function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
@@ -97,12 +103,13 @@ feedbackBlock.addEventListener("blur", function (e) {
 
 function ShowForm(element){
 	
-			let contentInput;
-			if(element.classList.contains("hastextarea")){
-				contentInput = document.createElement("textarea");
-			}else{
-				contentInput = document.createElement("input");
-			}
+		let contentInput;
+		if(element.classList.contains("hastextarea")){
+			contentInput = document.createElement("textarea");
+		}else{
+			contentInput = document.createElement("input");
+		}
+		contentInput.classList.add("edititng-input");
 
 		let elementContent = element.innerHTML;
 		let saveButton = document.createElement("button");
